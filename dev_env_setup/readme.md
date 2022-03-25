@@ -1,7 +1,87 @@
-launch.json
+## settings.json
+### ~/.config/Code/User/settings.json
+```
+{
+  "cmake.configureOnOpen": false,
+  "editor.minimap.enabled": false,
+  "editor.mouseWheelZoom": true,
+  "editor.renderControlCharacters": true,
+  "editor.rulers": [100],
+  "editor.tabSize": 2,
+  "files.associations": {
+    "*.repos": "yaml",
+    "*.world": "xml",
+    "*.xacro": "xml"
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "terminal.integrated.scrollback": 1000000,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.editor.pinnedTabSizing": "compact",
+  "ros.distro": "foxy",
+  "colcon.provideTasks": true
+}
+```
 
-~/robot_ws/.vscode/launch.json
 
+## c_cpp_properties.json
+### ~/robot_ws/.vscode/c_cpp_properties.json
+```
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${default}",
+        "${workspaceFolder}/**",
+        "/opt/ros/foxy/include/**"
+      ],
+      "defines": [],
+      "compilerPath": "/usr/bin/g++",
+      "cStandard": "c99",
+      "cppStandard": "c++14",
+      "intelliSenseMode": "linux-gcc-x64"
+    }
+  ],
+  "version": 4
+}
+``` 
+
+## tasks.json
+### ~/robot_ws/.vscode/tasks.json
+```
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "colcon: build",
+      "type": "shell",
+      "command": "colcon build --cmake-args '-DCMAKE_BUILD_TYPE=Debug'",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "colcon: test",
+      "type": "shell",
+      "command": "colcon test && colcon test-result"
+    },
+    {
+      "label": "colcon: clean",
+      "type": "shell",
+      "command": "rm -rf build install log"
+
+    }
+  ]
+}
+```
+
+## launch.json
+### ~/robot_ws/.vscode/launch.json
+
+```
 {
   "version": "0.2.0",
   "configurations": [
@@ -47,5 +127,4 @@ launch.json
     }
   ]
 }
-
-[출처] 001 ROS 2 개발 환경 구축 (오픈소스 소프트웨어 & 하드웨어: 로봇 기술 공유 카페 (오로카)) | 작성자 표윤석
+```
