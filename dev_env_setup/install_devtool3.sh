@@ -1,0 +1,1 @@
+sudo apt install --no-install-recommends -y libasio-dev libtinyxml2-dev libcunit1-dev
